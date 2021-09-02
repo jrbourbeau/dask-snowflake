@@ -37,6 +37,8 @@ def connection_kwargs():
 
 
 def test_write_read_roundtrip(table, connection_kwargs):
+    assert all(connection_kwargs.keys()), list(connection_kwargs.keys())
+    assert all(connection_kwargs.values()), list(connection_kwargs.values())
 
     # TODO: Find out if snowflake supports lower-case column names
     df = pd.DataFrame({"A": range(10), "B": range(10, 20)})
